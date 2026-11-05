@@ -1,0 +1,317 @@
+{
+  "communities": {
+    "0": [
+      "tests_run_tests",
+      "tests_run_tests_acidwater",
+      "tests_run_tests_assert",
+      "tests_run_tests_badgeapta",
+      "tests_run_tests_badgebact",
+      "tests_run_tests_badgechem",
+      "tests_run_tests_cachedorders",
+      "tests_run_tests_cleanwater",
+      "tests_run_tests_completedreferral",
+      "tests_run_tests_csvoutput",
+      "tests_run_tests_ecoliwater",
+      "tests_run_tests_escaped",
+      "tests_run_tests_evalacid",
+      "tests_run_tests_evalas",
+      "tests_run_tests_evalclean",
+      "tests_run_tests_evalecoli",
+      "tests_run_tests_evalnitrate",
+      "tests_run_tests_evalpseudo",
+      "tests_run_tests_evalturbid",
+      "tests_run_tests_extremeeval",
+      "tests_run_tests_fallbackkit",
+      "tests_run_tests_fbcontent",
+      "tests_run_tests_fbpath",
+      "tests_run_tests_floworder",
+      "tests_run_tests_flowprotocol",
+      "tests_run_tests_futuredate",
+      "tests_run_tests_futuresla",
+      "tests_run_tests_gitignorecontent",
+      "tests_run_tests_highaswater",
+      "tests_run_tests_highnitratewater",
+      "tests_run_tests_istamperedvalid",
+      "tests_run_tests_isvalid",
+      "tests_run_tests_labresults",
+      "tests_run_tests_mockorders",
+      "tests_run_tests_normalurl",
+      "tests_run_tests_now",
+      "tests_run_tests_nulleval",
+      "tests_run_tests_nulltempsla",
+      "tests_run_tests_orderdraft",
+      "tests_run_tests_ordersampled",
+      "tests_run_tests_packagejson",
+      "tests_run_tests_protocol",
+      "tests_run_tests_pseudomonaswater",
+      "tests_run_tests_referral",
+      "tests_run_tests_referralsla",
+      "tests_run_tests_rulescontent",
+      "tests_run_tests_rulespath",
+      "tests_run_tests_safeurl",
+      "tests_run_tests_sampledflow",
+      "tests_run_tests_samplekit",
+      "tests_run_tests_sampletaken26hoursago",
+      "tests_run_tests_sampletaken3hoursago",
+      "tests_run_tests_slaexpired",
+      "tests_run_tests_slaresult",
+      "tests_run_tests_slathermalbreach",
+      "tests_run_tests_tamperedorder",
+      "tests_run_tests_tamperedprotocol",
+      "tests_run_tests_tamperedsealorder",
+      "tests_run_tests_turbidwater",
+      "tests_run_tests_unicodehash",
+      "tests_run_tests_unicodepayload",
+      "tests_run_tests_versionjson",
+      "tests_run_tests_waingress",
+      "tests_run_tests_waprotocol"
+    ],
+    "1": [
+      "src_main",
+      "src_main_attachcaaevaluatorevents",
+      "src_main_attachdashboardevents",
+      "src_main_attachprotocolsevents",
+      "src_main_attachreferralsevents",
+      "src_main_attachsamplesevents",
+      "src_main_initapp",
+      "src_main_openprotocoldetailmodal",
+      "src_main_openprotocolmodal",
+      "src_main_opensamplemodal",
+      "src_main_rendercaaevaluator",
+      "src_main_renderdashboard",
+      "src_main_renderprotocols",
+      "src_main_renderreferrals",
+      "src_main_rendersamples",
+      "src_main_renderslacountdown",
+      "src_main_state",
+      "src_main_switchtab",
+      "src_services_exportservice",
+      "src_services_exportservice_exportservice",
+      "src_services_exportservice_exportservice_exporttoexcelcsv",
+      "src_utils_formatters",
+      "src_utils_formatters_formatters",
+      "src_utils_sanitizer",
+      "src_utils_sanitizer_sanitizer"
+    ],
+    "2": [
+      "src_main_initializedemodata",
+      "src_services_labtrackcache_service",
+      "src_services_labtrackcache_service_getstorageitem",
+      "src_services_labtrackcache_service_labtrackcacheservice",
+      "src_services_labtrackcache_service_labtrackcacheservice_clearoutbox",
+      "src_services_labtrackcache_service_labtrackcacheservice_enqueueoutbox",
+      "src_services_labtrackcache_service_labtrackcacheservice_getorders",
+      "src_services_labtrackcache_service_labtrackcacheservice_getoutbox",
+      "src_services_labtrackcache_service_labtrackcacheservice_getprotocols",
+      "src_services_labtrackcache_service_labtrackcacheservice_ispurged",
+      "src_services_labtrackcache_service_labtrackcacheservice_purgedata",
+      "src_services_labtrackcache_service_labtrackcacheservice_resetpurgefortesting",
+      "src_services_labtrackcache_service_labtrackcacheservice_saveorders",
+      "src_services_labtrackcache_service_labtrackcacheservice_saveprotocols",
+      "src_services_labtrackcache_service_memorystore",
+      "src_services_labtrackcache_service_removestorageitem",
+      "src_services_labtrackcache_service_setstorageitem"
+    ],
+    "3": [
+      "package",
+      "package_author",
+      "package_description",
+      "package_license",
+      "package_name",
+      "package_scripts",
+      "package_scripts_security_full",
+      "package_scripts_test",
+      "package_scripts_test_security",
+      "package_scripts_version_bump",
+      "package_type",
+      "package_version"
+    ],
+    "4": [
+      "src_core_caastandards",
+      "src_core_caastandards_caa_limits",
+      "src_core_caastandards_caastandardsengine",
+      "src_core_caastandards_caastandardsengine_evaluatewatersample",
+      "src_services_protocolservice",
+      "src_services_protocolservice_protocolservice",
+      "src_services_protocolservice_protocolservice_issueprotocol",
+      "src_services_protocolservice_protocolservice_verifyprotocolauthenticity",
+      "src_utils_cryptoseal",
+      "src_utils_cryptoseal_cryptoseal",
+      "src_utils_cryptoseal_sha256sync",
+      "src_utils_cryptoseal_toutf8binarystring"
+    ],
+    "5": [
+      "src_core_samplekitregistry",
+      "src_core_samplekitregistry_bottle_types",
+      "src_core_samplekitregistry_samplekitregistry",
+      "src_core_samplekitregistry_samplekitregistry_generatekit",
+      "src_core_slabiologicalsentinel",
+      "src_core_slabiologicalsentinel_slabiologicalsentinel",
+      "src_core_slabiologicalsentinel_slabiologicalsentinel_evaluateviability",
+      "src_services_sampleorderservice",
+      "src_services_sampleorderservice_sampleorderservice",
+      "src_services_sampleorderservice_sampleorderservice_createorder",
+      "src_services_sampleorderservice_sampleorderservice_recordinsitusampling",
+      "src_services_sampleorderservice_sampleorderservice_verifyorderintegrity"
+    ],
+    "6": [
+      "src_core_externalreferralengine",
+      "src_core_externalreferralengine_externalreferralengine",
+      "src_core_externalreferralengine_externalreferralengine_completereferral",
+      "src_core_externalreferralengine_externalreferralengine_createreferral",
+      "src_core_externalreferralengine_externalreferralengine_evaluatereferralsla"
+    ],
+    "7": [
+      "src_services_whatsapplabnotifier_service",
+      "src_services_whatsapplabnotifier_service_whatsapplabnotifierservice",
+      "src_services_whatsapplabnotifier_service_whatsapplabnotifierservice_notifyprotocolready",
+      "src_services_whatsapplabnotifier_service_whatsapplabnotifierservice_notifysampleingress"
+    ]
+  },
+  "cohesion": {
+    "0": 0.03125,
+    "1": 0.20666666666666667,
+    "2": 0.25,
+    "3": 0.16666666666666666,
+    "4": 0.24242424242424243,
+    "5": 0.21212121212121213,
+    "6": 0.4,
+    "7": 0.5
+  },
+  "gods": [
+    {
+      "id": "src_services_labtrackcache_service_labtrackcacheservice",
+      "label": "LabTrackCacheService",
+      "degree": 13
+    },
+    {
+      "id": "src_main_initializedemodata",
+      "label": "initializeDemoData()",
+      "degree": 11
+    },
+    {
+      "id": "src_utils_sanitizer_sanitizer",
+      "label": "Sanitizer",
+      "degree": 11
+    },
+    {
+      "id": "src_main_switchtab",
+      "label": "switchTab()",
+      "degree": 10
+    },
+    {
+      "id": "src_utils_formatters_formatters",
+      "label": "Formatters",
+      "degree": 10
+    },
+    {
+      "id": "src_utils_cryptoseal_cryptoseal",
+      "label": "CryptoSeal",
+      "degree": 8
+    },
+    {
+      "id": "src_main_opensamplemodal",
+      "label": "openSampleModal()",
+      "degree": 7
+    },
+    {
+      "id": "src_core_externalreferralengine_externalreferralengine",
+      "label": "ExternalReferralEngine",
+      "degree": 6
+    },
+    {
+      "id": "src_main_rendersamples",
+      "label": "renderSamples()",
+      "degree": 6
+    },
+    {
+      "id": "src_main_renderreferrals",
+      "label": "renderReferrals()",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "renderDashboard()",
+      "target": "Formatters",
+      "source_files": [
+        "src/main.js",
+        "src/utils/formatters.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "renderDashboard()",
+      "target": "Sanitizer",
+      "source_files": [
+        "src/main.js",
+        "src/utils/sanitizer.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "renderSamples()",
+      "target": "Formatters",
+      "source_files": [
+        "src/main.js",
+        "src/utils/formatters.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "renderSamples()",
+      "target": "Sanitizer",
+      "source_files": [
+        "src/main.js",
+        "src/utils/sanitizer.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "renderSLACountdown()",
+      "target": "Formatters",
+      "source_files": [
+        "src/main.js",
+        "src/utils/formatters.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `LabTrackCacheService` connect `Community 2` to `Community 0`, `Community 1`?",
+      "why": "High betweenness centrality (0.104) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Sanitizer` connect `Community 1` to `Community 0`?",
+      "why": "High betweenness centrality (0.033) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `ExternalReferralEngine` connect `Community 6` to `Community 0`, `Community 1`?",
+      "why": "High betweenness centrality (0.031) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `name`, `version`, `description` to the rest of the system?",
+      "why": "74 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.03125 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>LabTrack - Cadena de Custodia & Laboratorio de Aguas y Bromatología</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧪</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .print-only { display: block !important; }
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-sans selection:bg-blue-500 selection:text-white">
+
+  <!-- Header Institucional -->
+  <header class="no-print border-b border-slate-800/80 bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-xl shadow-lg shadow-blue-500/20">
+            🧪
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="font-extrabold text-white text-lg tracking-tight">LabTrack</h1>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">v1.0.00</span>
+            </div>
+            <p class="text-xs text-slate-400">Cadena de Custodia & Laboratorios de Aguas y Bromatología</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+        <button id="btn-header-new-sample" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs shadow-lg shadow-blue-600/30 flex items-center gap-2">
+          <span>+</span> Iniciar Muestreo In-Situ
+        </button>
+      </div>
+    </div>
+
+    <!-- Navegación por Pestañas -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-3">
+      <nav id="tab-nav" class="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+        <button data-tab="dashboard" class="px-4 py-2 rounded-xl text-sm font-semibold bg-blue-600 text-white shadow-lg shadow-blue-600/30 flex items-center gap-2 whitespace-nowrap">
+          📊 Panel General
+        </button>
+        <button data-tab="samples" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2 whitespace-nowrap">
+          🧪 Muestreos & Precintos
+        </button>
+        <button data-tab="sla-countdown" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2 whitespace-nowrap">
+          ⏱️ Semáforo SLA 24h
+        </button>
+        <button data-tab="caa-evaluator" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2 whitespace-nowrap">
+          ⚖️ Evaluador CAA Art. 982
+        </button>
+        <button data-tab="protocols" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2 whitespace-nowrap">
+          📋 Protocolos Oficiales
+        </button>
+        <button data-tab="referrals" class="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2 whitespace-nowrap">
+          🚚 Derivaciones Externas
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal de Vistas -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div id="view-container"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="no-print border-t border-slate-800/80 py-4 text-center text-xs text-slate-500">
+    LabTrack v1.0.00 · Trazabilidad Bromatológica · Sello Criptográfico SHA-256 · Código Alimentario Argentino Art. 982 · AiAppFactory
+  </footer>
+
+  <!-- Modal: Nuevo Muestreo In-Situ -->
+  <div id="sample-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">🧪 Nuevo Muestreo con Precinto</h3>
+        <button id="btn-close-sample-modal" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+
+      <form id="form-new-sample" class="space-y-4 text-xs">
+        <div>
+          <label class="block text-slate-400 mb-1">Cliente / Establecimiento</label>
+          <input type="text" id="new-client-name" value="Establecimiento Lácteo La Serenata" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Punto de Muestra Exacto</label>
+          <input type="text" id="new-point-name" value="Canilla de Alimentación Silo 2" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-400 mb-1">N° Precinto Inviolable</label>
+            <input type="text" id="new-seal-number" value="PREC-99214" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-amber-400 font-mono">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Temp Conservadora (°C)</label>
+            <input type="number" id="new-cooler-temp" step="0.1" value="4.2" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-cyan-400 font-mono">
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-400 mb-1">Cloro Libre DPD (mg/l)</label>
+            <input type="number" id="new-chlorine" step="0.05" value="0.30" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">pH In-Situ</label>
+            <input type="number" id="new-ph" step="0.1" value="7.2" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
+          </div>
+        </div>
+
+        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+          🔒 <strong>Doble Firma ePOD:</strong> Al confirmar, se estampa la firma digital del Muestreador y Responsable con Sello Criptográfico SHA-256.
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="submit" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold">
+            Confirmar y Sellar Acta In-Situ
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Emisión de Protocolo Oficial -->
+  <div id="protocol-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 id="protocol-modal-title" class="text-sm font-bold text-white truncate">Emisión de Protocolo Oficial</h3>
+        <button id="btn-close-protocol-modal" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+
+      <div class="text-xs text-slate-300 space-y-2">
+        <p>Se auditarán las lecturas de incubación e instrumental frente al <strong>Código Alimentario Argentino (Art. 982)</strong>.</p>
+        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-1">
+          <p class="text-slate-400">Director Técnico:</p>
+          <p class="font-bold text-white">Dra. Silvina Fontana</p>
+          <p class="text-emerald-400 font-mono text-[10px]">Matrícula Profesional: MP-BIOQ-10492</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-2 pt-2">
+        <button id="btn-confirm-issue-protocol" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs">
+          Firmar y Emitir Protocolo Digital (SHA-256)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Detalle de Protocolo -->
+  <div id="protocol-detail-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-sm font-bold text-white">Certificado Oficial de Análisis</h3>
+        <button id="btn-close-protocol-detail" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+
+      <div id="protocol-detail-content"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

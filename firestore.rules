@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isLabStaff() {
+      return isAuthenticated() && (request.auth.token.role == 'DIRECTOR_TECNICO' || request.auth.token.role == 'ANALISTA' || request.auth.token.role == 'MUESTREADOR');
+    }
+
+    function isClientOwner(clientId) {
+      return isAuthenticated() && request.auth.uid == clientId;
+    }
+
+    // Actas de Muestreo y Cadena de Custodia
+    match /sample_orders/{orderId} {
+      allow read: if isLabStaff() || (isAuthenticated() && resource.data.clientId == request.auth.uid);
+      allow create: if isLabStaff();
+      // Una vez sellada criptográficamente (status == 'CERTIFIED'), no puede modificarse
+      allow update: if isLabStaff() && resource.data.status != 'CERTIFIED';
+      allow delete: if false; // Invariante de auditoría forense: prohibido borrar actas
+    }
+
+    // Protocolos de Análisis Emitidos
+    match /protocols/{protocolId} {
+      // Los protocolos certificados pueden ser leídos por el cliente asignado o el laboratorio
+      allow read: if isLabStaff() || (isAuthenticated() && resource.data.clientId == request.auth.uid);
+      allow create, update: if isAuthenticated() && request.auth.token.role == 'DIRECTOR_TECNICO';
+      allow delete: if false;
+    }
+
+    // Clientes y Puntos de Muestreo
+    match /clients/{clientId} {
+      allow read: if isLabStaff() || isClientOwner(clientId);
+      allow write: if isLabStaff();
+    }
+
+    // Derivaciones a Laboratorios Externos
+    match /external_referrals/{referralId} {
+      allow read, write: if isLabStaff();
+    }
+  }
+}
