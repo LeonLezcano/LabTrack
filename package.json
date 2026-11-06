@@ -1,6 +1,6 @@
 {
   "name": "labtrack",
-  "version": "1.0.00",
+  "version": "1.0.01",
   "description": "LabTrack - Plataforma de Gestión de Laboratorios de Aguas, Bromatología & Cadena de Custodia Criptográfica",
   "type": "module",
   "scripts": {

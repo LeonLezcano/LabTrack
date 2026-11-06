@@ -108,22 +108,22 @@ function renderDashboard() {
     <div class="space-y-6">
       <!-- KPIs Superiores -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl">
+        <div class="bg-[#111827]/90 p-5 rounded-2xl border border-slate-800 shadow-xl">
           <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Muestreos Registrados</p>
           <p class="text-3xl font-extrabold text-blue-400 mt-2">${totalOrders}</p>
           <p class="text-xs text-slate-500 mt-1">Con Precinto y Cadena de Custodia</p>
         </div>
-        <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl">
+        <div class="bg-[#111827]/90 p-5 rounded-2xl border border-slate-800 shadow-xl">
           <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Protocolos Certificados</p>
           <p class="text-3xl font-extrabold text-emerald-400 mt-2">${certifiedProtocols}</p>
           <p class="text-xs text-slate-500 mt-1">Dictamen CAA Art. 982 Inmutable</p>
         </div>
-        <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl">
+        <div class="bg-[#111827]/90 p-5 rounded-2xl border border-slate-800 shadow-xl">
           <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">SLA Biológico en Curso</p>
           <p class="text-3xl font-extrabold text-amber-400 mt-2">${pendingBiological}</p>
           <p class="text-xs text-slate-500 mt-1">Ventana &lt; 24h para Siembra en Estufa</p>
         </div>
-        <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl">
+        <div class="bg-[#111827]/90 p-5 rounded-2xl border border-slate-800 shadow-xl">
           <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Derivaciones Externas</p>
           <p class="text-3xl font-extrabold text-cyan-400 mt-2">${activeReferrals}</p>
           <p class="text-xs text-slate-500 mt-1">ICP-MS / Cromatografía con SLA</p>
@@ -132,7 +132,7 @@ function renderDashboard() {
 
       <!-- Accesos Rápidos -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800/80 flex items-center justify-between">
+        <div class="bg-[#111827]/60 p-5 rounded-2xl border border-slate-800/80 flex items-center justify-between">
           <div>
             <h3 class="text-white font-bold text-base flex items-center gap-2">🧪 Nuevo Muestreo</h3>
             <p class="text-xs text-slate-400 mt-1">Generar acta in-situ con kit multi-frasco y precinto.</p>
@@ -141,7 +141,7 @@ function renderDashboard() {
             + Tomar Muestra
           </button>
         </div>
-        <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800/80 flex items-center justify-between">
+        <div class="bg-[#111827]/60 p-5 rounded-2xl border border-slate-800/80 flex items-center justify-between">
           <div>
             <h3 class="text-white font-bold text-base flex items-center gap-2">⏱️ Semáforo SLA 24h</h3>
             <p class="text-xs text-slate-400 mt-1">Control de viabilidad térmica y horas antes del vencimiento.</p>
@@ -150,7 +150,7 @@ function renderDashboard() {
             Ver Semáforo
           </button>
         </div>
-        <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800/80 flex items-center justify-between">
+        <div class="bg-[#111827]/60 p-5 rounded-2xl border border-slate-800/80 flex items-center justify-between">
           <div>
             <h3 class="text-white font-bold text-base flex items-center gap-2">⚖️ Evaluador CAA</h3>
             <p class="text-xs text-slate-400 mt-1">Auditar resultados frente al Código Alimentario Art. 982.</p>
@@ -162,14 +162,14 @@ function renderDashboard() {
       </div>
 
       <!-- Tabla de Últimos Muestreos -->
-      <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl">
+      <div class="bg-[#111827]/90 p-6 rounded-2xl border border-slate-800 shadow-xl">
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-lg font-bold text-white">Muestreos con Cadena de Custodia Activa</h3>
           <span class="text-xs px-2.5 py-1 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20 font-mono">SHA-256 Verified</span>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs text-slate-300">
-            <thead class="bg-slate-950/60 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+            <thead class="bg-[#0a0e17]/60 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
               <tr>
                 <th class="py-3 px-3">Código</th>
                 <th class="py-3 px-3">Cliente / Establecimiento</th>
@@ -239,7 +239,7 @@ function renderSamples() {
       <!-- Listado de Actas -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         ${state.orders.map(o => `
-          <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+          <div class="bg-[#111827]/90 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-4">
             <div class="flex items-start justify-between">
               <div>
                 <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-400 font-mono">${Sanitizer.escapeHTML(o.orderId)}</span>
@@ -253,7 +253,7 @@ function renderSamples() {
             </div>
 
             <!-- Mediciones In-Situ -->
-            <div class="grid grid-cols-3 gap-2 p-3 bg-slate-950/60 rounded-xl border border-slate-800/80 text-xs text-center">
+            <div class="grid grid-cols-3 gap-2 p-3 bg-[#0a0e17]/60 rounded-xl border border-slate-800/80 text-xs text-center">
               <div>
                 <p class="text-[10px] text-slate-500 uppercase">Temp Conservadora</p>
                 <p class="font-bold text-cyan-400 mt-0.5">${Formatters.temperature(o.inSituMeasurements?.coolerTempC)}</p>
@@ -289,7 +289,7 @@ function renderSamples() {
             </div>
 
             <!-- Sello Forense SHA-256 -->
-            <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800/80 text-[10px] font-mono text-slate-400 flex items-center justify-between">
+            <div class="p-2.5 bg-[#0a0e17] rounded-xl border border-slate-800/80 text-[10px] font-mono text-slate-400 flex items-center justify-between">
               <span class="truncate">Sello: ${o.cryptoSeal ? o.cryptoSeal.slice(0, 24) + '...' : 'Pendiente'}</span>
               <span class="text-emerald-400 font-bold shrink-0">✓ Inmutable</span>
             </div>
@@ -376,7 +376,7 @@ function renderSLACountdown() {
           }
 
           return `
-            <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+            <div class="bg-[#111827]/90 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-4">
               <div class="flex items-start justify-between">
                 <div>
                   <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-400 font-mono">${Sanitizer.escapeHTML(o.orderId)}</span>
@@ -389,7 +389,7 @@ function renderSLACountdown() {
               </div>
 
               <!-- Contador de Horas -->
-              <div class="grid grid-cols-2 gap-3 p-4 bg-slate-950/80 rounded-xl border border-slate-800 text-center">
+              <div class="grid grid-cols-2 gap-3 p-4 bg-[#0a0e17]/80 rounded-xl border border-slate-800 text-center">
                 <div>
                   <p class="text-[10px] text-slate-500 uppercase">Tiempo Transcurrido</p>
                   <p class="text-2xl font-black text-white mt-1">${sla.hoursElapsed} h</p>
@@ -438,44 +438,44 @@ function renderCAAEvaluator() {
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Formulario de Simulación -->
-        <div class="lg:col-span-2 bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+        <div class="lg:col-span-2 bg-[#111827]/90 p-6 rounded-2xl border border-slate-800 shadow-xl space-y-4">
           <h3 class="text-sm font-bold text-white uppercase tracking-wider">Carga Rápida de Determinaciones Analíticas</h3>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div>
               <label class="block text-slate-400 mb-1">Turbidez (Máx 3.0 NTU)</label>
-              <input type="number" id="input-turbidez" step="0.1" value="1.2" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
+              <input type="number" id="input-turbidez" step="0.1" value="1.2" class="w-full bg-[#0a0e17] border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
             </div>
             <div>
               <label class="block text-slate-400 mb-1">pH (Rango 6.5 - 8.5)</label>
-              <input type="number" id="input-ph" step="0.1" value="7.4" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
+              <input type="number" id="input-ph" step="0.1" value="7.4" class="w-full bg-[#0a0e17] border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
             </div>
             <div>
               <label class="block text-slate-400 mb-1">Nitratos (Máx 45 mg/l)</label>
-              <input type="number" id="input-nitratos" step="0.5" value="14.0" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
+              <input type="number" id="input-nitratos" step="0.5" value="14.0" class="w-full bg-[#0a0e17] border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
             </div>
             <div>
               <label class="block text-slate-400 mb-1">Arsénico (Máx 0.05 mg/l)</label>
-              <input type="number" id="input-arsenico" step="0.001" value="0.010" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
+              <input type="number" id="input-arsenico" step="0.001" value="0.010" class="w-full bg-[#0a0e17] border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
             </div>
             <div>
               <label class="block text-slate-400 mb-1">Dureza Total (Máx 400 mg/l CaCO3)</label>
-              <input type="number" id="input-dureza" step="5" value="180" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
+              <input type="number" id="input-dureza" step="5" value="180" class="w-full bg-[#0a0e17] border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
             </div>
             <div>
               <label class="block text-slate-400 mb-1">Coliformes Totales (&lt; 3 NMP/100ml)</label>
-              <input type="number" id="input-coliformes" step="1" value="0" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
+              <input type="number" id="input-coliformes" step="1" value="0" class="w-full bg-[#0a0e17] border border-slate-800 rounded-xl px-3 py-2 text-white font-mono">
             </div>
           </div>
 
           <!-- Patógenos Críticos -->
           <div class="pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <label class="flex items-center gap-3 p-3 bg-slate-950/60 rounded-xl border border-slate-800 cursor-pointer">
-              <input type="checkbox" id="check-ecoli" class="rounded bg-slate-900 border-slate-700 text-rose-600 focus:ring-0">
+            <label class="flex items-center gap-3 p-3 bg-[#0a0e17]/60 rounded-xl border border-slate-800 cursor-pointer">
+              <input type="checkbox" id="check-ecoli" class="rounded bg-[#111827] border-slate-700 text-rose-600 focus:ring-0">
               <span class="text-slate-300">Presencia de <strong>Escherichia coli</strong> (Criterio Invalida)</span>
             </label>
-            <label class="flex items-center gap-3 p-3 bg-slate-950/60 rounded-xl border border-slate-800 cursor-pointer">
-              <input type="checkbox" id="check-pseudo" class="rounded bg-slate-900 border-slate-700 text-rose-600 focus:ring-0">
+            <label class="flex items-center gap-3 p-3 bg-[#0a0e17]/60 rounded-xl border border-slate-800 cursor-pointer">
+              <input type="checkbox" id="check-pseudo" class="rounded bg-[#111827] border-slate-700 text-rose-600 focus:ring-0">
               <span class="text-slate-300">Presencia de <strong>Pseudomonas aeruginosa</strong></span>
             </label>
           </div>
@@ -486,7 +486,7 @@ function renderCAAEvaluator() {
         </div>
 
         <!-- Panel de Dictamen en Vivo -->
-        <div id="eval-result-panel" class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
+        <div id="eval-result-panel" class="bg-[#111827]/90 p-6 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
           <div>
             <span class="text-[10px] uppercase font-bold text-slate-500">Dictamen Institucional</span>
             <div id="dictamen-badge-container" class="mt-2 p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-center font-bold text-sm">
@@ -588,9 +588,9 @@ function renderProtocols() {
       </div>
 
       <!-- Tabla de Protocolos -->
-      <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 shadow-xl overflow-x-auto">
+      <div class="bg-[#111827]/90 p-6 rounded-2xl border border-slate-800 shadow-xl overflow-x-auto">
         <table class="w-full text-left text-xs text-slate-300">
-          <thead class="bg-slate-950/60 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+          <thead class="bg-[#0a0e17]/60 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
             <tr>
               <th class="py-3 px-3">Protocolo N°</th>
               <th class="py-3 px-3">Cliente</th>
@@ -689,7 +689,7 @@ function renderReferrals() {
         ${state.referrals.map(r => {
           const sla = ExternalReferralEngine.evaluateReferralSLA(r);
           return `
-            <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-3">
+            <div class="bg-[#111827]/90 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-3">
               <div class="flex items-start justify-between">
                 <div>
                   <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-500/20 text-purple-400 font-mono">${Sanitizer.escapeHTML(r.referralId)}</span>
@@ -701,7 +701,7 @@ function renderReferrals() {
                 </span>
               </div>
 
-              <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 text-xs space-y-1">
+              <div class="p-3 bg-[#0a0e17]/60 rounded-xl border border-slate-800 text-xs space-y-1">
                 <div class="flex justify-between">
                   <span class="text-slate-500">Muestra Remitida:</span>
                   <span class="font-mono text-slate-300">${Sanitizer.escapeHTML(r.sampleCode)}</span>
@@ -858,7 +858,7 @@ function openProtocolDetailModal(protocol) {
           </span>
         </div>
 
-        <div class="grid grid-cols-2 gap-3 text-xs bg-slate-950 p-4 rounded-xl border border-slate-800">
+        <div class="grid grid-cols-2 gap-3 text-xs bg-[#0a0e17] p-4 rounded-xl border border-slate-800">
           <div><span class="text-slate-500">Turbidez:</span> <strong class="text-white">${Sanitizer.escapeHTML(protocol.labResults.turbidez)} NTU</strong></div>
           <div><span class="text-slate-500">pH:</span> <strong class="text-white">${Sanitizer.escapeHTML(protocol.labResults.ph)}</strong></div>
           <div><span class="text-slate-500">Nitratos:</span> <strong class="text-white">${Sanitizer.escapeHTML(protocol.labResults.nitratos)} mg/l</strong></div>
@@ -867,7 +867,7 @@ function openProtocolDetailModal(protocol) {
           <div><span class="text-slate-500">E. coli:</span> <strong class="text-emerald-400">Ausencia en 100 ml</strong></div>
         </div>
 
-        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] font-mono text-slate-400">
+        <div class="p-3 bg-[#0a0e17] rounded-xl border border-slate-800 text-[11px] font-mono text-slate-400">
           <p class="text-emerald-400 font-bold mb-1">🔒 Firma Criptográfica del Director Técnico:</p>
           <p class="truncate">${Sanitizer.escapeHTML(protocol.protocolCryptoSeal)}</p>
           <p class="mt-1 text-slate-500">Firmado por: ${Sanitizer.escapeHTML(protocol.technicalDirector?.name)} (${Sanitizer.escapeHTML(protocol.technicalDirector?.license)})</p>
@@ -899,7 +899,7 @@ export function switchTab(tabId) {
     if (btn.getAttribute('data-tab') === tabId) {
       btn.className = 'px-4 py-2 rounded-xl text-sm font-semibold bg-blue-600 text-white shadow-lg shadow-blue-600/30 flex items-center gap-2';
     } else {
-      btn.className = 'px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2';
+      btn.className = 'px-4 py-2 rounded-xl text-sm font-semibold bg-[#111827]/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800/80 flex items-center gap-2';
     }
   });
 
