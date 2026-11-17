@@ -435,6 +435,29 @@ assert(errorThrown === true, 'External referral throws on missing required param
 const versionJson = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'version.json'), 'utf8'));
 assert(packageJson.version === versionJson.version.replace(/^v/, ''), 'package.json and version.json semantic versions match');
 
+// 58. Offline cache stores, retrieves, and purges external referrals
+LabTrackCacheService.resetPurgeForTesting();
+LabTrackCacheService.saveReferrals([completedReferral]);
+const cachedReferrals = LabTrackCacheService.getReferrals();
+assert(cachedReferrals.length === 1 && cachedReferrals[0].referralId === completedReferral.referralId, 'Offline cache stores and loads external referrals');
+LabTrackCacheService.purgeData();
+assert(LabTrackCacheService.getReferrals().length === 0, 'Purge clears cached external referrals');
+
+// 59. Offline-first HTML, Manifest, CSP & Service Worker integrity
+const indexHtml = fs.readFileSync(path.resolve(process.cwd(), 'index.html'), 'utf8');
+assert(!indexHtml.includes('cdn.tailwindcss.com') && indexHtml.includes('./styles.css'), 'index.html uses local compiled styles.css instead of Tailwind CDN');
+assert(indexHtml.includes('./manifest.json') && !indexHtml.includes('user-scalable=no'), 'index.html links manifest.json and allows mobile zoom');
+
+const fbJson = JSON.parse(fbContent);
+const cspHeader = fbJson.hosting.headers.find(h => h.source === '**')?.headers.find(x => x.key === 'Content-Security-Policy')?.value || '';
+assert(!cspHeader.includes("'unsafe-inline'") && !cspHeader.includes('cdn.tailwindcss.com'), 'firebase.json CSP removes unsafe-inline and external Tailwind CDN');
+const swHeaderRule = fbJson.hosting.headers.find(h => h.source === '/sw.js' || h.source === 'sw.js');
+assert(Boolean(swHeaderRule) && swHeaderRule.headers.some(x => x.key === 'Cache-Control' && x.value.includes('no-store')), 'firebase.json enforces no-cache/no-store on /sw.js');
+
+const swContent = fs.readFileSync(path.resolve(process.cwd(), 'sw.js'), 'utf8');
+assert(swContent.includes('./styles.css') && swContent.includes('./src/main.js') && !swContent.includes('./src/app.js'), 'sw.js caches compiled styles.css and active src/main.js entry');
+assert(swContent.includes(`labtrack-cache-${versionJson.version}`), 'sw.js CACHE_NAME matches version.json');
+
 console.log('\n======================================================================');
 console.log(`  TOTAL: ${passed + failed} tests | ${passed} PASSED | ${failed} FAILED`);
 console.log('======================================================================\n');

@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-dark: #0a0e17;
+    --bg-well: #0d1322;
+    --card-dark: #111827;
+    --card-border: #1e293b;
+    --accent-primary: #2563eb;
+    --accent-focus: #60a5fa;
+  }
+
+  html {
+    background-color: #0a0e17;
+    color: #f8fafc;
+    color-scheme: dark;
+  }
+
+  body {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    background-color: #0a0e17;
+    color: #f8fafc;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  h1 {
+    font-size: 1.625rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  ::selection {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.visually-hidden:where(:not(:focus-within):not(:active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Tab active indicator using border-bottom for WCAG 1.4.1 non-color cue */
+[role="tab"][aria-selected="true"] {
+  border-color: #3b82f6;
+}
+
+[aria-modal="true"].hidden > div {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    color-scheme: light;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-surface,
+  #protocol-detail-modal,
+  #protocol-detail-modal > div {
+    position: static !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #protocol-detail-modal * {
+    color: #0f172a !important;
+    background-color: transparent !important;
+    border-color: #cbd5e1 !important;
+  }
+}

@@ -13,7 +13,8 @@ export class ExternalReferralEngine {
     destLabName,
     testRequested,
     slaDays = 5,
-    shippedAt = new Date().toISOString()
+    shippedAt = new Date().toISOString(),
+    isDemo = false
   }) {
     if (!orderId || !sampleCode || !destLabName || !testRequested) {
       throw new Error('Faltan datos obligatorios para registrar la derivación');
@@ -33,7 +34,8 @@ export class ExternalReferralEngine {
       expectedDueDate,
       status: 'OUTBOUND_SHIPPED', // OUTBOUND_SHIPPED, IN_PROCESS, RESULTS_RECEIVED
       results: null,
-      receivedAt: null
+      receivedAt: null,
+      isDemo: Boolean(isDemo)
     };
   }
 

@@ -28,6 +28,7 @@ export class ProtocolService {
       orderId: sampleOrder.orderId,
       clientId: sampleOrder.clientId,
       clientName: sampleOrder.clientName,
+      isDemo: Boolean(sampleOrder.isDemo),
       facilityAddress: sampleOrder.facilityAddress,
       samplingPointName: sampleOrder.samplingPointName,
       samplingTimestamp: sampleOrder.samplingTimestamp,

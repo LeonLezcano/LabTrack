@@ -9,12 +9,14 @@ export class SampleOrderService {
   static createOrder({
     clientId,
     clientName,
+    clientPhone = '',
     facilityAddress,
     samplingPointName, // Ej: 'Canilla de Red - Cocina Comedor' o 'Boca de Pozo N° 1'
     samplerName,
     samplerLicense,
     requestedTypes = ['MICROBIOLOGY', 'PHYSICOCHEMICAL'],
-    notes = ''
+    notes = '',
+    isDemo = false
   }) {
     if (!clientId || !clientName || !samplingPointName || !samplerName) {
       throw new Error('Datos obligatorios incompletos para crear orden de muestreo');
@@ -27,11 +29,13 @@ export class SampleOrderService {
       orderId,
       clientId,
       clientName,
+      clientPhone: String(clientPhone || '').trim(),
       facilityAddress,
       samplingPointName,
       samplerName,
       samplerLicense,
       notes,
+      isDemo: Boolean(isDemo),
       kit,
       status: 'SCHEDULED', // SCHEDULED, SAMPLED_IN_SITU, IN_LAB, CERTIFIED
       inSituMeasurements: {

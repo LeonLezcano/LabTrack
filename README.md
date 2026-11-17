@@ -1,7 +1,7 @@
-# 🧪 LabTrack — Cadena de Custodia & Laboratorios de Aguas y Bromatología
+# LabTrack - Cadena de Custodia y Laboratorios de Aguas y Bromatología
 
-> **AiAppFactory Standard · Versión v1.0.00**  
-> *Gestión de Muestreos In-Situ, Precintos Inviolables, Semáforo de SLA Biológico (< 24h a 4°C), Dictamen Código Alimentario Argentino (CAA Art. 982) y Protocolos Criptográficos con SHA-256.*
+> **AiAppFactory Standard · Versión v1.0.02**  
+> *Gestión de Muestreos In-Situ, Precintos Inviolables, Semáforo de SLA Biológico (< 24h a 4 °C), Dictamen Código Alimentario Argentino (CAA Art. 982) y Protocolos Criptográficos con SHA-256.*
 
 ---
 
@@ -49,17 +49,26 @@ Los laboratorios de análisis de aguas, alimentos y muestras ambientales enfrent
 
 ---
 
-## 🧪 Arnés de Pruebas Multi-Capa (72 Tests en 5 Capas)
+## Arnés de Pruebas Multi-Capa (80 Tests en 5 Capas)
 
 Ejecución de la suite completa:
 ```bash
-node tests/run_tests.js
+pnpm test
 ```
 - **Capa 1 (Unitarias & Bromatología):** Validación CAA Art. 982, SLA biológico, kits multi-frasco y derivaciones.
 - **Capa 2 (Integración & Forense):** Actas in-situ, precintos, sellos SHA-256, detección de adulteración, protocolos y exportador CSV con BOM UTF-8.
 - **Capa 3 (Componentes & DOM):** Formateadores de moneda/temperatura/ppm, badges de dictamen y prevención de XSS con Sanitizer Zero-Sink.
 - **Capa 4 (Seguridad, CSP & Firestore Rules):** Auditoría AppSec Guardian 100/100, aislamiento multi-cliente y reglas RBAC.
-- **Capa 5 (E2E & Fuzzing Caótico):** Flujo completo de muestreo, persistencia offline, alertas WhatsApp E.164 y fuzzing con valores extremos de pH/concentraciones.
+- **Capa 5 (E2E & Fuzzing Caótico):** Flujo completo de muestreo, persistencia offline (muestras, protocolos y derivaciones), alertas WhatsApp E.164, integridad PWA/CSP y fuzzing con valores extremos.
+
+---
+
+## Higiene UX/UI, Accesibilidad y Arquitectura Offline-First
+
+- **Design System (`DESIGN.md`):** Paleta instrumental consolidada con contraste WCAG AA (`>= 4.5:1`), jerarquía tipográfica descendente (`h1 > h2 > h3 > body`), iconografía SVG uniforme sin emojis decorativos y soporte `@media print` / `prefers-reduced-motion`.
+- **Accesibilidad (WCAG AA & ARIA):** Navegación por pestañas con `role="tablist"` / `role="tab"` / `aria-selected` y flechas de teclado, modales con `role="dialog"` / `aria-modal="true"` / cierre con `Escape` y restauración de foco, anillos `:focus-visible`, etiquetas `<label for="...">` vinculadas y áreas táctiles mínimas de `44x44px`.
+- **Formularios Reales y Transparencia `[DEMO]`:** Etiquetado explícito `[DEMO]` sobre registros sembrados con purga local confirmable, captura real de firmas ePOD, determinaciones de protocolo, derivaciones externas persistidas y envío WhatsApp E.164 configurable.
+- **Offline-First y CSP Estricta:** Compilación local de Tailwind CSS (`styles.css`), `manifest.json`, Service Worker (`sw.js`) con precaché de todos los módulos activos en `src/` y `firebase.json` sin `'unsafe-inline'` ni dependencias CDN externas.
 
 ---
 
